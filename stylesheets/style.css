@@ -1,0 +1,41 @@
+﻿body
+{
+    background-color: LightBlue;    
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    font-family: 'Myriad Pro' , Calibri, Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin:0;
+}
+
+h1
+{
+    text-align: center;
+}
+h2
+{
+    text-align: center;
+    color: Blue;
+}
+
+h3
+{
+    text-align: center;
+    color: white;
+}
+
+.content
+{
+   
+    text-align: left;   
+    margin: 0 auto;
+    max-width: 800px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(1, #fff));
+    background: -moz-linear-gradient(top, #00abeb, #fff);    
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+}
