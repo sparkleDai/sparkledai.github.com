@@ -5,98 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="sparkleDai.github.com" />
     <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/XmlSp.js" type="text/javascript"></script>
     <title>如意专栏</title>
     <h1>
         如意专栏</h1>
     <h2>
         愚者求异 智者求同</h2>
+    <script type="text/javascript">
+        function loadArticle() {
+            var articlePath = "article/html/10002.txt";
+            var content = ReadTxtFile(articlePath,"gb2312");
+            var article_content = document.getElementById("article_content");
+            article_content.innerHTML = content;
+        }
+        window.onload = function () {
+            loadArticle();
+        }
+    </script>
 </head>
 <body>
-    <div id="article_content" class="content">
-        <h3>
-            从零开始在github上搭建免费博客</h3>
-        <div>
-            <h4>
-                写在前页
-            </h4>
-            <p>
-                在一次看博客的时候，看到可以在github上搭建免费的博客，立即心潮澎湃的搜索相关资料，结果折腾了很久。</p>
-            <p>
-                有用jekll搭建的，有用Octopress搭建的，可是看了那些资料，照着弄了之后，总是弄的不好的。</p>
-            <p>
-                之后查看github的相关说明，猛然发现原来github已经提供了代码仓库首页自动生成功能，只要稍加利用就可以搭建免费博客了。</p>
-            <p>
-                以下是搭建的步骤:</p>
-        </div>
-        <div>
-            <h4>
-                第一步:申请帐号</h4>
-            <p>
-                申请一个github帐号。</p>
-        </div>
-        <div>
-            <h4>
-                第二步:新建用户页</h4>
-            <p>
-                登陆github，建立一个用户页(user page)的代码仓库。即新建一个与自己github帐号相应的用户页。</p>
-            <p>
-                如帐户是example，则新建的用户页代码仓库为example.github.com。一定要这个名字，不然后边关联会出问题。</p>
-        </div>
-        <div>
-            <h4>
-                第三步:生成首页</h4>
-            <p>
-                打开example.github.com代码仓库，在右上角找到Settings选项，点开。</p>
-            <p>
-                向下滚动，找到GitHub Pages项，点击Automatic Page Generator，转入到Create a GitHub User Page页面。</p>
-            <p>
-                向下滚动，在右下角有一个Continue to Layouts按钮，点击进入主题选择页面。
-            <p>
-                在顶部有几个主题选项，选一个合适的，然后点击PUBLIS。</p>
-            <p>
-                完成之后回到之前的Settings页面的GitHub Pages项，这时你会Your site is published at后边有一个URL。</p>
-            <p>
-                这个URL就是与你的帐号关联的URL(example.github.com)。</p>
-            <p>
-                点击之后就可以访问到刚刚生成的页面。</p>
-            <p>
-                回到代码仓库中的Files选项卡中，会发现里面多了很多文件。其中index.html就是首页。</p>
-            <p>
-                如果想做一个更加炫丽的首页，那么就可以修改index.html里面的内容及相关的CSS样表。</p>
-        </div>
-        <div>
-            <h4>
-                第四步:重置域名</h4>
-            <p>
-                在代码仓库中新建一个CNAME的文件，里面写上要重定向的域名,如example.com。</p>
-            <p>
-                一般重定向之后，需要10分钟左右才能生效，请耐心等待。</p>
-            <p>
-                如果重定向失败，那么你注册帐号时的邮箱会收到一卦邮件，你可以查看失败的原因。</p>
-            <p>
-                如果没有自己的域名，那么需要去申请一个域名。</p>
-            <p>
-                我开始的时候，以为随便写一个就OK了，折腾了好些时间，才醒悟过来。</p>
-            <p>
-                我找了好多免费域名的网站，大多是看着是免费，后面发现是收费的。</p>
-            <p>
-                最后找到了顶级域名为.TK的，并成功申请了<a href="http://sparkleblog.tk/">sparkleblog.TK</a>的域名。</p>
-            <p>
-                不过这个域名貌似生效的时间比较长，我是隔了一天才收到生效的邮件的。</p>
-            <a href="http://my.dot.tk/">这是TK域名的申请网址</a>
-        </div>
-        <div>
-            <h4>
-                第五步:更新博客</h4>
-            <p>
-                建立HTML页面，然后将链接挂到首页上。如果要建的更炫丽，那可以到网上找相关的资料。</p>
-        </div>
-        <div>
-            <h4>
-                后记</h4>
-            <p>
-                至此,个人免费博客搭建完毕。</p>
-        </div>
+    <div id="article_content" class="content">   
     </div>
 </body>
 </html>

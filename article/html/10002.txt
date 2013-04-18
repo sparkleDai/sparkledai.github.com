@@ -1,0 +1,780 @@
+<div>
+	<p>
+	s.strip() .lstrip() .rstrip(',') 去空格及特殊符号
+	</p>
+</div>
+<div>
+	<p>
+	复制字符串
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strcpy(sStr1,sStr2)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'strcpy'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = sStr1
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'strcpy2'
+	</p>
+</div>
+<div>
+	<p>
+		print sStr2
+	</p>
+</div>
+<div>
+	<p>
+	连接字符串
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strcat(sStr1,sStr2)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'strcat'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = 'append'
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 += sStr2
+	</p>
+</div>
+<div>
+	<p>
+		print sStr1
+	</p>
+</div>
+<div>
+	<p>
+	查找字符
+	</p>
+</div>
+<div>
+	<p>
+	< 0 未找到
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strchr(sStr1,sStr2)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'strchr'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = 's'
+	</p>
+</div>
+<div>
+	<p>
+		nPos = sStr1.index(sStr2)
+	</p>
+</div>
+<div>
+	<p>
+		print nPos
+	</p>
+</div>
+<div>
+	<p>
+	比较字符串
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strcmp(sStr1,sStr2)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'strchr'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = 'strch'
+	</p>
+</div>
+<div>
+	<p>
+		print cmp(sStr1,sStr2)
+	</p>
+</div>
+<div>
+	<p>
+	扫描字符串是否包含指定的字符
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strspn(sStr1,sStr2)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = '12345678'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = '456'
+	</p>
+</div>
+<div>
+	<p>
+		#sStr1 and chars both in sStr1 and sStr2
+	</p>
+</div>
+<div>
+	<p>
+		print len(sStr1 and sStr2)
+	</p>
+</div>
+<div>
+	<p>
+	字符串长度
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strlen(sStr1)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'strlen'
+	</p>
+</div>
+<div>
+	<p>
+		print len(sStr1)
+	</p>
+</div>
+<div>
+	<p>
+	将字符串中的大小写转换
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strlwr(sStr1)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'JCstrlwr'
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = sStr1.upper()
+	</p>
+</div>
+<div>
+	<p>
+		#sStr1 = sStr1.lower()
+	</p>
+</div>
+<div>
+	<p>
+		print sStr1
+	</p>
+</div>
+<div>
+	<p>
+	追加指定长度的字符串
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strncat(sStr1,sStr2,n)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = '12345'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = 'abcdef'
+	</p>
+</div>
+<div>
+	<p>
+		n = 3
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 += sStr2[0:n]
+	</p>
+</div>
+<div>
+	<p>
+		print sStr1
+	</p>
+</div>
+<div>
+	<p>
+	字符串指定长度比较
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strncmp(sStr1,sStr2,n)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = '12345'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = '123bc'
+	</p>
+</div>
+<div>
+	<p>
+		n = 3
+	</p>
+</div>
+<div>
+	<p>
+		print cmp(sStr1[0:n],sStr2[0:n])
+	</p>
+</div>
+<div>
+	<p>
+	复制指定长度的字符
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strncpy(sStr1,sStr2,n)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = ''
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = '12345'
+	</p>
+</div>
+<div>
+	<p>
+		n = 3
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = sStr2[0:n]
+	</p>
+</div>
+<div>
+	<p>
+		print sStr1
+	</p>
+</div>
+<div>
+	<p>
+	将字符串前n个字符替换为指定的字符
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strnset(sStr1,ch,n)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = '12345'
+	</p>
+</div>
+<div>
+	<p>
+		ch = 'r'
+	</p>
+</div>
+<div>
+	<p>
+		n = 3
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = n * ch + sStr1[3:]
+	</p>
+</div>
+<div>
+	<p>
+		print sStr1
+	</p>
+</div>
+<div>
+	<p>
+	扫描字符串
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strpbrk(sStr1,sStr2)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'cekjgdklab'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = 'gka'
+	</p>
+</div>
+<div>
+	<p>
+		nPos = -1
+	</p>
+</div>
+<div>
+	<p>
+		for c in sStr1:
+	</p>
+</div>
+<div>
+	<p>
+		    if c in sStr2:
+	</p>
+</div>
+<div>
+	<p>
+		        nPos = sStr1.index(c)
+	</p>
+</div>
+<div>
+	<p>
+		        break
+	</p>
+</div>
+<div>
+	<p>
+		print nPos
+	</p>
+</div>
+<div>
+	<p>
+	翻转字符串
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strrev(sStr1)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'abcdefg'
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = sStr1[::-1]
+	</p>
+</div>
+<div>
+	<p>
+		print sStr1
+	</p>
+</div>
+<div>
+	<p>
+	查找字符串
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strstr(sStr1,sStr2)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'abcdefg'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = 'cde'
+	</p>
+</div>
+<div>
+	<p>
+		print sStr1.find(sStr2)
+	</p>
+</div>
+<div>
+	<p>
+	分割字符串
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		#strtok(sStr1,sStr2)
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = 'ab,cde,fgh,ijk'
+	</p>
+</div>
+<div>
+	<p>
+		sStr2 = ','
+	</p>
+</div>
+<div>
+	<p>
+		sStr1 = sStr1[sStr1.find(sStr2) + 1:]
+	</p>
+</div>
+<div>
+	<p>
+		print sStr1
+	</p>
+</div>
+<div>
+	<p>
+		或者
+	</p>
+</div>
+<div>
+	<p>
+		s = 'ab,cde,fgh,ijk'
+	</p>
+</div>
+<div>
+	<p>
+		print(s.split(','))
+	</p>
+</div>
+<div>
+	<p>
+	连接字符串
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		delimiter = ','
+	</p>
+</div>
+<div>
+	<p>
+		mylist = ['Brazil', 'Russia', 'India', 'China']
+	</p>
+</div>
+<div>
+	<p>
+		print delimiter.join(mylist)
+	</p>
+</div>
+<div>
+	<p>
+	PHP 中 addslashes 的实现
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		def addslashes(s):
+	</p>
+</div>
+<div>
+	<p>
+		    d = {'"':'\\"', "'":"\\'", "\0":"\\\0", "\\":"\\\\"}
+	</p>
+</div>
+<div>
+	<p>
+		    return ''.join(d.get(c, c) for c in s)
+	</p>
+</div>
+<div>
+	<p>
+		 
+	</p>
+</div>
+<div>
+	<p>
+		s = "John 'Johny' Doe (a.k.a. \"Super Joe\")\\\0"
+	</p>
+</div>
+<div>
+	<p>
+		print s
+	</p>
+</div>
+<div>
+	<p>
+		print addslashes(s)
+	</p>
+</div>
+<div>
+	<p>
+	只显示字母与数字
+	</p>
+</div>
+<div>
+	<p>
+	Python
+	</p>
+</div>
+<div>
+	<p>
+	
+	</p>
+</div>
+<div>
+	<p>
+		def OnlyCharNum(s,oth=''):
+	</p>
+</div>
+<div>
+	<p>
+		    s2 = s.lower();
+	</p>
+</div>
+<div>
+	<p>
+		    fomart = 'abcdefghijklmnopqrstuvwxyz0123456789'
+	</p>
+</div>
+<div>
+	<p>
+		    for c in s2:
+	</p>
+</div>
+<div>
+	<p>
+		        if not c in fomart:
+	</p>
+</div>
+<div>
+	<p>
+		            s = s.replace(c,'');
+	</p>
+</div>
+<div>
+	<p>
+		    return s;
+	</p>
+</div>
+<div>
+	<p>
+		 
+	</p>
+</div>
+<div>
+	<p>
+		print(OnlyStr("a000 aa-b"))
+	</p>
+</div>
