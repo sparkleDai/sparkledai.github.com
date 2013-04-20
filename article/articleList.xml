@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<articleList>
+  <article>
+    <id>10001</id>
+    <name>从零开始在github上搭建免费博客</name>
+  </article>
+  <article>
+    <id>10002</id>
+    <name>Python字符串操作</name>
+  </article>
+</articleList>

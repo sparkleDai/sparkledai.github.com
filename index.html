@@ -1,43 +1,116 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta name="keywords" content="如意,github博客,sparkle,sparkleblog" />
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="sparkleDai.github.com" />
     <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/Weather.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/weather.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/article.css" rel="stylesheet" type="text/css" />
     <script src="javascripts/Weather.js" type="text/javascript"></script>
     <script src="javascripts/XmlSp.js" type="text/javascript"></script>
     <title>如意专栏</title>
     <script type="text/javascript">
-        function loadArticle() {
-            var articlePath = "article/html/10002.txt";
+        Config = {};
+        Config.articleDir_ = "article/";
+        Config.articleHtmlDir_ = "article/html/";
+        Config.articleListPath_ = "article/articleList.xml";
+
+        function loadArticleContent(articlePath) {            
             var content = ReadTxtFile(articlePath, "gb2312");
             var article_content = document.getElementById("article_content");
-            article_content.innerHTML = content;
+            article_content.innerHTML = content;            
         }
+
+        function loadArticleList() {
+            var articleList = fetchArticleList();
+            var articleListHtml = "";
+            for (var index = 0; index < articleList.length; index++) {
+                var id = articleList["article" + index.toString()].id;
+                var name = articleList["article" + index.toString()].name;
+                var articleHtml = '<li id="' + id.toString() + '" onclick="loadCurrentArticle(this)">'
+                                + '<a id="' + "articleTitle" + id.toString() + '" href="#">' + name + '</a>'
+                                + '</li>';
+                articleListHtml += articleHtml;
+            }
+            document.getElementById("article_list").innerHTML = articleListHtml;
+        }
+         
+        function loadArticleTitle(articleId) {
+            var article_title = document.getElementById("article_title");
+            var title = document.getElementById("articleTitle" + articleId.toString()).innerHTML;
+            article_title.innerHTML = "<h3>" + title + "</h3>";
+        }
+
+        function loadCurrentArticle(obj) {
+            if (obj !== undefined || obj !== null) {
+                loadArticleTitle(obj.id.toString());
+                loadArticleContent(Config.articleHtmlDir_ + obj.id.toString() + ".txt"); 
+            }
+        }
+
+        function fetchArticleList() {
+            var articleList = {};
+            var xmlDoc = loadXMLDoc(Config.articleListPath_);
+            if (xmlDoc === undefined || xmlDoc === null) {
+                return;
+            }
+            else {
+                var articleList = GetNodeList(xmlDoc, 'article');
+                for (var index = 0; index < articleList.length; index++) {
+                    var idList = GetNodeList(articleList[index], 'id');
+                    var nameList = GetNodeList(articleList[index], 'name');
+                    var id = GetNodeValue(idList[0], 0);
+                    var name = GetNodeValue(nameList[0], 0);
+                    var articleInfo = {};
+                    articleInfo.id = id;
+                    articleInfo.name = name;
+                    articleList["article" + index.toString()] = articleInfo;
+                }
+            }
+            return articleList;
+        }
+
         function loadWeather() {
-            var showWeatherObj = document.getElementById("weather");
+            var showWeatherObj = document.getElementById("weather_content");
             Weather.getWeather(showWeatherObj);
         }
         window.onload = function () {
-            loadArticle();
+            loadArticleList();
+            //loadArticle(Config.articleHtmlDir_ + "10001.txt");
+            loadCurrentArticle(document.getElementById("10001"));
             loadWeather();
         }
     </script>
 </head>
 <body>
-    <div>
-        <div id="head">
-            <h1>
-                <a>如意专栏</a><br />
-                <a id="motto">愚者求异 智者求同</a>
-            </h1>
-        </div>
-        <div id="weather" class="weather border">
-        </div>
+    <div id="head">
+        <h1>
+            <a>如意专栏</a><br />
+            <a id="motto">愚者求异 智者求同</a>
+        </h1>
     </div>
-    <div id="article_content" class="content border">
+    <div id="body">
+        <div id="left_toolbar" class="left-toolbar">
+            <div id="article_list" class="article-list border">
+            </div>
+        </div>
+        <div id="right_toolbar" class="right-toolbar">
+            <div id="weather" class="weather">
+                <div id="weathcer_head">
+                    <img src="../images/weather_head.png" />
+                </div>
+                <div id="weather_content" class="weather">
+                </div>
+            </div>
+        </div>
+        <div id="article" class="content border">
+            <div id="article_title">
+            </div>
+            <div id="article_content" >
+            </div>
+        </div>
     </div>
 </body>
 </html>
