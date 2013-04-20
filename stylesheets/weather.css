@@ -1,0 +1,29 @@
+﻿.weather
+{
+    margin-right: 10px;
+    background-image:url('../images/weather_content.png');
+    background-repeat: repeat;
+}
+
+.weather td
+{
+    padding: 2px;
+    text-align: center;
+}
+
+.weather img
+{
+    max-width:300px;
+    src: url('../images/weather_head.png');
+}
+
+#weathcer_hea
+{
+    max-width: 200px;
+}
+
+#city
+{
+    color: #FF0000;
+   
+}
