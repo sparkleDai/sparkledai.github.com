@@ -22,9 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="bbbp.py" />
     <Compile Include="ArticleToHtml.py" />
     <Compile Include="UtilSp\Python\fileSp.py" />
+    <Compile Include="UtilSp\Python\xmlSp.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UtilSp\" />
