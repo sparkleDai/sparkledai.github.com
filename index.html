@@ -17,39 +17,6 @@
         Config.articleHtmlDir_ = "article/html/";
         Config.articleListPath_ = "article/articleList.xml";
 
-        function loadArticleContent(articlePath) {            
-            var content = ReadTxtFile(articlePath, "gb2312");
-            var article_content = document.getElementById("article_content");
-            article_content.innerHTML = content;            
-        }
-
-        function loadArticleList() {
-            var articleList = fetchArticleList();
-            var articleListHtml = "";
-            for (var index = 0; index < articleList.length; index++) {
-                var id = articleList["article" + index.toString()].id;
-                var name = articleList["article" + index.toString()].name;
-                var articleHtml = '<li id="' + id.toString() + '" onclick="loadCurrentArticle(this)">'
-                                + '<a id="' + "articleTitle" + id.toString() + '" href="#">' + name + '</a>'
-                                + '</li>';
-                articleListHtml += articleHtml;
-            }
-            document.getElementById("article_list").innerHTML = articleListHtml;
-        }
-         
-        function loadArticleTitle(articleId) {
-            var article_title = document.getElementById("article_title");
-            var title = document.getElementById("articleTitle" + articleId.toString()).innerHTML;
-            article_title.innerHTML = "<h3>" + title + "</h3>";
-        }
-
-        function loadCurrentArticle(obj) {
-            if (obj !== undefined || obj !== null) {
-                loadArticleTitle(obj.id.toString());
-                loadArticleContent(Config.articleHtmlDir_ + obj.id.toString() + ".txt"); 
-            }
-        }
-
         function fetchArticleList() {
             var articleList = {};
             var xmlDoc = loadXMLDoc(Config.articleListPath_);
@@ -72,6 +39,34 @@
             return articleList;
         }
 
+        function loadArticle(articlePath) {            
+            var content = ReadTxtFile(articlePath, "gb2312");
+            var article_content = document.getElementById("article_content");
+            article_content.innerHTML = content;            
+        }
+
+        function loadArticleList() {
+            var articleList = fetchArticleList();
+            var articleListHtml = "";
+            for (var index = 0; index < articleList.length; index++) {
+                var id = articleList["article" + index.toString()].id;
+                var name = articleList["article" + index.toString()].name;
+                var articleHtml = '<li id="' + id.toString() + '" onclick="loadCurrentArticle(this)">'
+                                + '<a id="' + "articleTitle" + id.toString() + '" href="#">' + name + '</a>'
+                                + '</li>';
+                articleListHtml += articleHtml;
+            }
+            document.getElementById("article_list").innerHTML = articleListHtml;
+        }         
+       
+
+        function loadCurrentArticle(obj) {
+            if (obj !== undefined || obj !== null) {              
+                loadArticle(Config.articleHtmlDir_ + obj.id.toString() + ".txt"); 
+            }
+        }
+
+      
         function loadWeather() {
             var showWeatherObj = document.getElementById("weather_content");
             Weather.getWeather(showWeatherObj);
