@@ -1,0 +1,40 @@
+我是一个Linux新手，想要安装一台Ubuntu 12.04版的Linux服务器，用这台服务器上的LAMP套件来运行我自己的个人网站。LAMP套件就是“Linux+Apache+Mysql+PHP这四款软件组成了一个可以使网站运行的套装工具软件。”通过安装尝试，我获得了一些成功的安装配置经验，通过本文提供给Linux网站服务器系统的入门者学习。本次安装的网站软件环境中将使用Apache2网页服务软件、MySQL5网站后台数据库软件、以及PHP5角本解释语言软件，配置成的系统也可提供FTP服务。
+
+1. LAMP 的安装
+
+sudo apt-get install apache2 mysql-server mysql-client php5 php5-gd php5-mysql
+由于LAMP大部分操作与/var/www目录相关，为了方便，修改该目录的权限为普通用户可访问。
+
+sudo chmod 777 /var/www/
+2. phpmyadmin 安装
+
+sudo apt-get install phpmyadmin
+    在安装过程中会要求选择Web server：apache2或lighttpd，选择apache2，按tab键然后确定。然后会要求输入设置的Mysql数据库密码连接密码 Password of the database's administrative user。
+    然后将phpmyadmin与apache2建立连接，以我的为例：www目录在/var/www，phpmyadmin在/usr/share /phpmyadmin目录，所以就用命令：sudo ln -s /usr/share/phpmyadmin /var/www 建立连接。
+    phpmyadmin测试：在浏览器地址栏中打开http://localhost/phpmyadmin。
+3. Apache 配置
+（1）启用 mod_rewrite 模块
+    终端命令：sudo a2enmod rewrite
+（2）重启Apache服务器：sudo /etc/init.d/apache2 restart
+    Apache重启后可以测试一下，在/var/www目录下新建文件test.php，写入代码： 保存，在地址栏输入http://127.0.0.1/test.php 或 http://localhost/test.php ，如果正确出现了Mysql已经正确配置，表明Apache和mysql都正常了。(记得重启Apache服务器后再测试)。
+test.php
+<?php
+    $link = mysql_connect("localhost","root","mysql密码");
+     
+    if (!$link)
+     
+    {
+     
+    die('Could not connect: ' . mysql_error());
+     
+    }
+     
+    else echo "Mysql已经正确配置";
+     
+    mysql_close($link);
+     
+    ?>
+4. 浏览器PHP中文乱码问题
+上面在FireFox浏览器中打开test.php测试时，如果出现了中文乱码，则是默认语言设置问题，解决方法如下：
+打开apache配置文件： udo gedit /etc/apache2/apache2.conf，在最后面加上：AddDefaultCharset UTF-8，如果还是乱码的，再将UTF-8改用gb2312。
+重启Apache：sudo /etc/init.d/apache2 restart 再刷新test.php 中文乱码没有了

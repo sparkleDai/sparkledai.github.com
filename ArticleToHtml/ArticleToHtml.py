@@ -1,5 +1,5 @@
 # -*- coding: GBK -*-
-articlePath_ = "..\\article\\origin\\Python字符串操作.txt"
+articlePath_ = "..\\article\\origin\\UbuntuKylin下安装配置LAMP.txt"
 articleListPath_="..\\article\\articleList.xml"
 htmlDir_ = "..\\article\\html\\"
 

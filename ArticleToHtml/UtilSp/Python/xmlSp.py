@@ -74,7 +74,7 @@ class xmlSp:
 
     def writeXml(self,nodeTree, outPath,charset="utf-8"): 
         try:
-            nodeTree.write(outPath, encoding=charset,xml_declaration=True)
+            nodeTree.write(outPath, encoding=charset)
             return True
         except:
             return False
