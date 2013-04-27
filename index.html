@@ -72,9 +72,8 @@
             Weather.getWeather(showWeatherObj);
         }
         window.onload = function () {
-            loadArticleList();
-            //loadArticle(Config.articleHtmlDir_ + "10001.txt");
-            loadCurrentArticle(document.getElementById("10001"));
+			loadCurrentArticle(document.getElementById("10001"));
+            loadArticleList(); 
             loadWeather();
         }
     </script>
