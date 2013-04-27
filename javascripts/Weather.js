@@ -20,12 +20,12 @@ Weather.loadJS = function (url, bindFunction) {
 }
 
 Weather.getWeather = function (showWeatherParentObj, city, futureDays) {//根据city的值获取天气信息
-
+    remote_ip_info = StorageSp.getItem(StorageSp.StorageKeySet.RemoteIpInfo);  
     if (remote_ip_info === undefined
         || remote_ip_info === null
         || remote_ip_info.city === undefined
         || remote_ip_info.city === null) {
-        Weather.loadJS(searchCityServerUrl_,
+        Weather.loadJS(Weather.searchCityServerUrl_,
            function () { return showWeather(); }
           );
     }
@@ -34,7 +34,7 @@ Weather.getWeather = function (showWeatherParentObj, city, futureDays) {//根据
     }
 
     function showWeather() {
-
+        StorageSp.setItem(StorageSp.StorageKeySet.RemoteIpInfo, remote_ip_info.toJSONString());  
         if (city === undefined || city === null || city.length <= 0) {
             city = remote_ip_info.city;
         }
@@ -109,20 +109,5 @@ Weather.getWeather = function (showWeatherParentObj, city, futureDays) {//根据
     }
 }
 
-Weather.getCurrentCity = function (showCityObj, valueField/*The key of showing value.Egg:value,innerHTML*/) {
-    if (showCityObj !== undefined && showCityObj !== null) {
-        if (remote_ip_info === undefined || remote_ip_info === null
-            || remote_ip_info.city === undefined || remote_ip_info.city === null) {
-            loadJS(searchCityServerUrl_,
-           function () {
-               showCityObj[valueField] = remote_ip_info.city;
-           }
-          );
-        }
-        else {
-            showCityObj[valueField] = remote_ip_info.city;
-        }
-    }
-}
 
  
