@@ -11,8 +11,11 @@ def fetchFileName(filePath,withExtension=True):
                 splitArrayExtension=fileName.split('.');
                 if len(splitArrayExtension)<=1:
                     return ""
-                else:
-                    return splitArrayExtension[len(splitArrayExtension)-2]
+                else:    
+                    extension=fetchFileExtension(fileName)
+                    fileNameNoExt=fileName.split('.'+extension)[0]   
+                    return  fileNameNoExt        
+                   
 def fetchFileExtension(filePath):
     if filePath!="":
         splitArray=filePath.split('.');

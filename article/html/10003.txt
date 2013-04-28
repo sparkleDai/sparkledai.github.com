@@ -1,7 +1,7 @@
-<h3>UbuntuKylin下安装配置LAMP</h3>
+<h3>Python3.x与Python2.x的区别.txt</h3>
 <div>
 	<p>
-	我是一个Linux新手，想要安装一台Ubuntu 12.04版的Linux服务器，用这台服务器上的LAMP套件来运行我自己的个人网站。LAMP套件就是“Linux+Apache+Mysql+PHP这四款软件组成了一个可以使网站运行的套装工具软件。”通过安装尝试，我获得了一些成功的安装配置经验，通过本文提供给Linux网站服务器系统的入门者学习。本次安装的网站软件环境中将使用Apache2网页服务软件、MySQL5网站后台数据库软件、以及PHP5角本解释语言软件，配置成的系统也可提供FTP服务。
+	这个星期开始学习Python了，因为看的书都是基于Python2.x，而且我安装的是Python3.1，所以书上写的地方好多都不适用于Python3.1，特意在Google上search了一下3.x和2.x的区别。特此在自己的空间中记录一下，以备以后查找方便，也可以分享给想学习Python的friends.
 	</p>
 </div>
 <div>
@@ -11,7 +11,162 @@
 </div>
 <div>
 	<p>
-	1. LAMP 的安装
+	
+	</p>
+</div>
+<div>
+	<p>
+	1.性能 
+	</p>
+</div>
+<div>
+	<p>
+	Py3.0运行 pystone benchmark的速度比Py2.5慢30%。Guido认为Py3.0有极大的优化空间，在字符串和整形操作上可 
+	</p>
+</div>
+<div>
+	<p>
+	以取得很好的优化结果。 
+	</p>
+</div>
+<div>
+	<p>
+	Py3.1性能比Py2.5慢15%，还有很大的提升空间。 
+	</p>
+</div>
+<div>
+	<p>
+	2.编码 
+	</p>
+</div>
+<div>
+	<p>
+	Py3.X源码文件默认使用utf-8编码，这就使得以下代码是合法的： 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> 中国 = 'china' 
+	</p>
+</div>
+<div>
+	<p>
+	    >>>print(中国) 
+	</p>
+</div>
+<div>
+	<p>
+	    china 
+	</p>
+</div>
+<div>
+	<p>
+	3. 语法 
+	</p>
+</div>
+<div>
+	<p>
+	1）去除了<>，全部改用!= 
+	</p>
+</div>
+<div>
+	<p>
+	2）去除``，全部改用repr() 
+	</p>
+</div>
+<div>
+	<p>
+	3）关键词加入as 和with，还有True,False,None 
+	</p>
+</div>
+<div>
+	<p>
+	4）整型除法返回浮点数，要得到整型结果，请使用// 
+	</p>
+</div>
+<div>
+	<p>
+	5）加入nonlocal语句。使用noclocal x可以直接指派外围（非全局）变量 
+	</p>
+</div>
+<div>
+	<p>
+	6）去除print语句，加入print()函数实现相同的功能。同样的还有 exec语句，已经改为exec()函数 
+	</p>
+</div>
+<div>
+	<p>
+	   例如： 
+	</p>
+</div>
+<div>
+	<p>
+	     2.X: print "The answer is", 2*2 
+	</p>
+</div>
+<div>
+	<p>
+	     3.X: print("The answer is", 2*2) 
+	</p>
+</div>
+<div>
+	<p>
+	     2.X: print x,                              # 使用逗号结尾禁止换行 
+	</p>
+</div>
+<div>
+	<p>
+	     3.X: print(x, end=" ")                     # 使用空格代替换行 
+	</p>
+</div>
+<div>
+	<p>
+	     2.X: print                                 # 输出新行 
+	</p>
+</div>
+<div>
+	<p>
+	     3.X: print()                               # 输出新行 
+	</p>
+</div>
+<div>
+	<p>
+	     2.X: print >>sys.stderr, "fatal error" 
+	</p>
+</div>
+<div>
+	<p>
+	     3.X: print("fatal error", file=sys.stderr) 
+	</p>
+</div>
+<div>
+	<p>
+	     2.X: print (x, y)                          # 输出repr((x, y)) 
+	</p>
+</div>
+<div>
+	<p>
+	     3.X: print((x, y))                         # 不同于print(x, y)! 
+	</p>
+</div>
+<div>
+	<p>
+	7）改变了顺序操作符的行为，例如x<y，当x和y类型不匹配时抛出TypeError而不是返回随即的 bool值  
+	</p>
+</div>
+<div>
+	<p>
+	8）输入函数改变了，删除了raw_input，用input代替： 
+	</p>
+</div>
+<div>
+	<p>
+	   2.X:guess = int(raw_input('Enter an integer : ')) # 读取键盘输入的方法 
+	</p>
+</div>
+<div>
+	<p>
+	   3.X:guess = int(input('Enter an integer : '))
 	</p>
 </div>
 <div>
@@ -21,12 +176,247 @@
 </div>
 <div>
 	<p>
-	sudo apt-get install apache2 mysql-server mysql-client php5 php5-gd php5-mysql
+	9）去除元组参数解包。不能def(a, (b, c)):pass这样定义函数了 
 	</p>
 </div>
 <div>
 	<p>
-	由于LAMP大部分操作与/var/www目录相关，为了方便，修改该目录的权限为普通用户可访问。
+	10）新式的8进制字变量，相应地修改了oct()函数。 
+	</p>
+</div>
+<div>
+	<p>
+	   2.X的方式如下： 
+	</p>
+</div>
+<div>
+	<p>
+	     >>> 0666 
+	</p>
+</div>
+<div>
+	<p>
+	     438 
+	</p>
+</div>
+<div>
+	<p>
+	     >>> oct(438) 
+	</p>
+</div>
+<div>
+	<p>
+	     '0666' 
+	</p>
+</div>
+<div>
+	<p>
+	   3.X这样： 
+	</p>
+</div>
+<div>
+	<p>
+	     >>> 0666 
+	</p>
+</div>
+<div>
+	<p>
+	     SyntaxError: invalid token (<pyshell#63>, line 1) 
+	</p>
+</div>
+<div>
+	<p>
+	     >>> 0o666 
+	</p>
+</div>
+<div>
+	<p>
+	     438 
+	</p>
+</div>
+<div>
+	<p>
+	     >>> oct(438) 
+	</p>
+</div>
+<div>
+	<p>
+	     '0o666' 
+	</p>
+</div>
+<div>
+	<p>
+	11）增加了 2进制字面量和bin()函数 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> bin(438) 
+	</p>
+</div>
+<div>
+	<p>
+	    '0b110110110' 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> _438 = '0b110110110' 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> _438 
+	</p>
+</div>
+<div>
+	<p>
+	    '0b110110110' 
+	</p>
+</div>
+<div>
+	<p>
+	12）扩展的可迭代解包。在Py3.X 里，a, b, *rest = seq和 *rest, a = seq都是合法的，只要求两点：rest是list 
+	</p>
+</div>
+<div>
+	<p>
+	对象和seq是可迭代的。 
+	</p>
+</div>
+<div>
+	<p>
+	13）新的super()，可以不再给super()传参数， 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> class C(object): 
+	</p>
+</div>
+<div>
+	<p>
+	          def __init__(self, a): 
+	</p>
+</div>
+<div>
+	<p>
+	             print('C', a) 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> class D(C): 
+	</p>
+</div>
+<div>
+	<p>
+	          def __init(self, a): 
+	</p>
+</div>
+<div>
+	<p>
+	             super().__init__(a) # 无参数调用super() 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> D(8) 
+	</p>
+</div>
+<div>
+	<p>
+	    C 8 
+	</p>
+</div>
+<div>
+	<p>
+	    <__main__.D object at 0x00D7ED90> 
+	</p>
+</div>
+<div>
+	<p>
+	14）新的metaclass语法： 
+	</p>
+</div>
+<div>
+	<p>
+	    class Foo(*bases, **kwds): 
+	</p>
+</div>
+<div>
+	<p>
+	      pass 
+	</p>
+</div>
+<div>
+	<p>
+	15）支持class decorator。用法与函数decorator一样： 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> def foo(cls_a): 
+	</p>
+</div>
+<div>
+	<p>
+	          def print_func(self): 
+	</p>
+</div>
+<div>
+	<p>
+	             print('Hello, world!') 
+	</p>
+</div>
+<div>
+	<p>
+	          cls_a.print = print_func 
+	</p>
+</div>
+<div>
+	<p>
+	          return cls_a 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> @foo 
+	</p>
+</div>
+<div>
+	<p>
+	    class C(object): 
+	</p>
+</div>
+<div>
+	<p>
+	      pass 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> C().print() 
+	</p>
+</div>
+<div>
+	<p>
+	    Hello, world! 
+	</p>
+</div>
+<div>
+	<p>
+	class decorator可以用来玩玩狸猫换太子的大把戏。更多请参阅PEP 3129 
+	</p>
+</div>
+<div>
+	<p>
+	4. 字符串和字节串 
+	</p>
+</div>
+<div>
+	<p>
+	1）现在字符串只有str一种类型，但它跟2.x版本的unicode几乎一样。
 	</p>
 </div>
 <div>
@@ -36,12 +426,297 @@
 </div>
 <div>
 	<p>
-	sudo chmod 777 /var/www/
+	2）关于字节串，请参阅“数据类型”的第2条目 
 	</p>
 </div>
 <div>
 	<p>
-	2. phpmyadmin 安装
+	5.数据类型 
+	</p>
+</div>
+<div>
+	<p>
+	1）Py3.X去除了long类型，现在只有一种整型——int，但它的行为就像2.X版本的long 
+	</p>
+</div>
+<div>
+	<p>
+	2）新增了bytes类型，对应于2.X版本的八位串，定义一个bytes字面量的方法如下： 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> b = b'china' 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> type(b) 
+	</p>
+</div>
+<div>
+	<p>
+	    <type 'bytes'> 
+	</p>
+</div>
+<div>
+	<p>
+	str对象和bytes对象可以使用.encode() (str -> bytes) or .decode() (bytes -> str)方法相互转化。 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> s = b.decode() 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> s 
+	</p>
+</div>
+<div>
+	<p>
+	    'china' 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> b1 = s.encode() 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> b1 
+	</p>
+</div>
+<div>
+	<p>
+	    b'china' 
+	</p>
+</div>
+<div>
+	<p>
+	3）dict的.keys()、.items 和.values()方法返回迭代器，而之前的iterkeys()等函数都被废弃。同时去掉的还有 
+	</p>
+</div>
+<div>
+	<p>
+	dict.has_key()，用 in替代它吧 
+	</p>
+</div>
+<div>
+	<p>
+	6.面向对象 
+	</p>
+</div>
+<div>
+	<p>
+	1）引入抽象基类（Abstraact Base Classes，ABCs）。 
+	</p>
+</div>
+<div>
+	<p>
+	2）容器类和迭代器类被ABCs化，所以cellections模块里的类型比Py2.5多了很多。 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> import collections 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> print('\n'.join(dir(collections))) 
+	</p>
+</div>
+<div>
+	<p>
+	    Callable 
+	</p>
+</div>
+<div>
+	<p>
+	    Container 
+	</p>
+</div>
+<div>
+	<p>
+	    Hashable 
+	</p>
+</div>
+<div>
+	<p>
+	    ItemsView 
+	</p>
+</div>
+<div>
+	<p>
+	    Iterable 
+	</p>
+</div>
+<div>
+	<p>
+	    Iterator 
+	</p>
+</div>
+<div>
+	<p>
+	    KeysView 
+	</p>
+</div>
+<div>
+	<p>
+	    Mapping 
+	</p>
+</div>
+<div>
+	<p>
+	    MappingView 
+	</p>
+</div>
+<div>
+	<p>
+	    MutableMapping 
+	</p>
+</div>
+<div>
+	<p>
+	    MutableSequence 
+	</p>
+</div>
+<div>
+	<p>
+	    MutableSet 
+	</p>
+</div>
+<div>
+	<p>
+	    NamedTuple 
+	</p>
+</div>
+<div>
+	<p>
+	    Sequence 
+	</p>
+</div>
+<div>
+	<p>
+	    Set 
+	</p>
+</div>
+<div>
+	<p>
+	    Sized 
+	</p>
+</div>
+<div>
+	<p>
+	    ValuesView 
+	</p>
+</div>
+<div>
+	<p>
+	    __all__ 
+	</p>
+</div>
+<div>
+	<p>
+	    __builtins__ 
+	</p>
+</div>
+<div>
+	<p>
+	    __doc__ 
+	</p>
+</div>
+<div>
+	<p>
+	    __file__ 
+	</p>
+</div>
+<div>
+	<p>
+	    __name__ 
+	</p>
+</div>
+<div>
+	<p>
+	    _abcoll 
+	</p>
+</div>
+<div>
+	<p>
+	    _itemgetter 
+	</p>
+</div>
+<div>
+	<p>
+	    _sys 
+	</p>
+</div>
+<div>
+	<p>
+	    defaultdict 
+	</p>
+</div>
+<div>
+	<p>
+	    deque 
+	</p>
+</div>
+<div>
+	<p>
+	另外，数值类型也被ABCs化。关于这两点，请参阅 PEP 3119和PEP 3141。 
+	</p>
+</div>
+<div>
+	<p>
+	3）迭代器的next()方法改名为__next__()，并增加内置函数next()，用以调用迭代器的__next__()方法 
+	</p>
+</div>
+<div>
+	<p>
+	4）增加了@abstractmethod和 @abstractproperty两个 decorator，编写抽象方法（属性）更加方便。 
+	</p>
+</div>
+<div>
+	<p>
+	7.异常 
+	</p>
+</div>
+<div>
+	<p>
+	1）所以异常都从 BaseException继承，并删除了StardardError 
+	</p>
+</div>
+<div>
+	<p>
+	2）去除了异常类的序列行为和.message属性 
+	</p>
+</div>
+<div>
+	<p>
+	3）用 raise Exception(args)代替 raise Exception, args语法 
+	</p>
+</div>
+<div>
+	<p>
+	4）捕获异常的语法改变，引入了as关键字来标识异常实例，在Py2.5中： 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> try: 
+	</p>
+</div>
+<div>
+	<p>
+	    ...    raise NotImplementedError('Error') 
+	</p>
+</div>
+<div>
+	<p>
+	    ... except NotImplementedError, error:
 	</p>
 </div>
 <div>
@@ -51,151 +726,216 @@
 </div>
 <div>
 	<p>
-	sudo apt-get install phpmyadmin
+	    ...    print error.message 
 	</p>
 </div>
 <div>
 	<p>
-	    在安装过程中会要求选择Web server：apache2或lighttpd，选择apache2，按tab键然后确定。然后会要求输入设置的Mysql数据库密码连接密码 Password of the database's administrative user。
+	    ... 
 	</p>
 </div>
 <div>
 	<p>
-	    然后将phpmyadmin与apache2建立连接，以我的为例：www目录在/var/www，phpmyadmin在/usr/share /phpmyadmin目录，所以就用命令：sudo ln -s /usr/share/phpmyadmin /var/www 建立连接。
+	    Error 
 	</p>
 </div>
 <div>
 	<p>
-	    phpmyadmin测试：在浏览器地址栏中打开http://localhost/phpmyadmin。
+	在Py3.0中： 
 	</p>
 </div>
 <div>
 	<p>
-	3. Apache 配置
+	    >>> try: 
 	</p>
 </div>
 <div>
 	<p>
-	（1）启用 mod_rewrite 模块
+	          raise NotImplementedError('Error') 
 	</p>
 </div>
 <div>
 	<p>
-	    终端命令：sudo a2enmod rewrite
+	        except NotImplementedError as error: #注意这个 as 
 	</p>
 </div>
 <div>
 	<p>
-	（2）重启Apache服务器：sudo /etc/init.d/apache2 restart
+	          print(str(error)) 
 	</p>
 </div>
 <div>
 	<p>
-	    Apache重启后可以测试一下，在/var/www目录下新建文件test.php，写入代码： 保存，在地址栏输入http://127.0.0.1/test.php 或 http://localhost/test.php ，如果正确出现了Mysql已经正确配置，表明Apache和mysql都正常了。(记得重启Apache服务器后再测试)。
+	    Error 
 	</p>
 </div>
 <div>
 	<p>
-	test.php
+	5）异常链，因为__context__在3.0a1版本中没有实现 
 	</p>
 </div>
 <div>
 	<p>
-	<?php
+	8.模块变动 
 	</p>
 </div>
 <div>
 	<p>
-	    $link = mysql_connect("localhost","root","mysql密码");
+	1）移除了cPickle模块，可以使用pickle模块代替。最终我们将会有一个透明高效的模块。 
 	</p>
 </div>
 <div>
 	<p>
-	     
+	2）移除了imageop模块 
 	</p>
 </div>
 <div>
 	<p>
-	    if (!$link)
+	3）移除了 audiodev, Bastion, bsddb185, exceptions, linuxaudiodev, md5, MimeWriter, mimify, popen2,  
 	</p>
 </div>
 <div>
 	<p>
-	     
+	rexec, sets, sha, stringold, strop, sunaudiodev, timing和xmllib模块 
 	</p>
 </div>
 <div>
 	<p>
-	    {
+	4）移除了bsddb模块(单独发布，可以从http://www.jcea.es/programacion/pybsddb.htm获取) 
 	</p>
 </div>
 <div>
 	<p>
-	     
+	5）移除了new模块 
 	</p>
 </div>
 <div>
 	<p>
-	    die('Could not connect: ' . mysql_error());
+	6）os.tmpnam()和os.tmpfile()函数被移动到tmpfile模块下 
 	</p>
 </div>
 <div>
 	<p>
-	     
+	7）tokenize模块现在使用bytes工作。主要的入口点不再是generate_tokens，而是 tokenize.tokenize() 
 	</p>
 </div>
 <div>
 	<p>
-	    }
+	9.其它 
 	</p>
 </div>
 <div>
 	<p>
-	     
+	1）xrange() 改名为range()，要想使用range()获得一个list，必须显式调用： 
 	</p>
 </div>
 <div>
 	<p>
-	    else echo "Mysql已经正确配置";
+	    >>> list(range(10)) 
 	</p>
 </div>
 <div>
 	<p>
-	     
+	    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
 	</p>
 </div>
 <div>
 	<p>
-	    mysql_close($link);
+	2）bytes对象不能hash，也不支持 b.lower()、b.strip()和b.split()方法，但对于后两者可以使用 b.strip(b’  
 	</p>
 </div>
 <div>
 	<p>
-	     
+	\n\t\r \f’)和b.split(b’ ‘)来达到相同目的 
 	</p>
 </div>
 <div>
 	<p>
-	    ?>
+	3）zip()、map()和filter()都返回迭代器。而apply()、 callable()、coerce()、 execfile()、reduce()和reload 
 	</p>
 </div>
 <div>
 	<p>
-	4. 浏览器PHP中文乱码问题
+	()函数都被去除了
 	</p>
 </div>
 <div>
 	<p>
-	上面在FireFox浏览器中打开test.php测试时，如果出现了中文乱码，则是默认语言设置问题，解决方法如下：
+	
 	</p>
 </div>
 <div>
 	<p>
-	打开apache配置文件： udo gedit /etc/apache2/apache2.conf，在最后面加上：AddDefaultCharset UTF-8，如果还是乱码的，再将UTF-8改用gb2312。
+	现在可以使用hasattr()来替换 callable(). hasattr()的语法如：hasattr(string, '__name__')
 	</p>
 </div>
 <div>
 	<p>
-	重启Apache：sudo /etc/init.d/apache2 restart 再刷新test.php 中文乱码没有了
+	
+	</p>
+</div>
+<div>
+	<p>
+	4）string.letters和相关的.lowercase和.uppercase被去除，请改用string.ascii_letters 等 
+	</p>
+</div>
+<div>
+	<p>
+	5）如果x < y的不能比较，抛出TypeError异常。2.x版本是返回伪随机布尔值的 
+	</p>
+</div>
+<div>
+	<p>
+	6）__getslice__系列成员被废弃。a[i:j]根据上下文转换为a.__getitem__(slice(I, j))或 __setitem__和 
+	</p>
+</div>
+<div>
+	<p>
+	__delitem__调用 
+	</p>
+</div>
+<div>
+	<p>
+	7）file类被废弃，在Py2.5中： 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> file 
+	</p>
+</div>
+<div>
+	<p>
+	    <type 'file'> 
+	</p>
+</div>
+<div>
+	<p>
+	在Py3.X中： 
+	</p>
+</div>
+<div>
+	<p>
+	    >>> file 
+	</p>
+</div>
+<div>
+	<p>
+	    Traceback (most recent call last): 
+	</p>
+</div>
+<div>
+	<p>
+	    File "<pyshell#120>", line 1, in <module> 
+	</p>
+</div>
+<div>
+	<p>
+	       file 
+	</p>
+</div>
+<div>
+	<p>
+	    NameError: name 'file' is not defined
 	</p>
 </div>

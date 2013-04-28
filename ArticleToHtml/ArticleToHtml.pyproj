@@ -24,6 +24,7 @@
   <ItemGroup>
     <Compile Include="ArticleToHtml.py" />
     <Compile Include="UtilSp\Python\fileSp.py" />
+    <Compile Include="UtilSp\Python\listSp.py" />
     <Compile Include="UtilSp\Python\xmlSp.py" />
   </ItemGroup>
   <ItemGroup>
