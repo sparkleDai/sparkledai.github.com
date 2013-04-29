@@ -1,4 +1,4 @@
-# -*- coding: GBK -*-
+# -*- coding: UTF-8 -*-
 articleOriginPath_ = "..\\article\\origin\\"
 articleListPath_="..\\article\\articleList.xml"
 htmlDir_ = "..\\article\\html\\"
@@ -122,11 +122,23 @@ def updateArticleList(articleIdList,articleNameList):
         articleListXml.addNode(parentNode,nameNode)
         articleListXml.addNode(rootNode,parentNode)
         articleListXml.writeXml(nodeTree,articleListPath_)
+    #tempPath="temp.xml"
+    #formatResult=articleListXml.format(articleListPath_,tempPath)    
+    #if not formatResult:
+    #    print(str(articleListXml._exception))
+    #else:
+    #    os.remove(articleListPath_)
+    #    os.rename(tempPath,articleListPath_)
+
 
 if __name__ == '__main__': 
-    #convertArticleName=input("Please input article name that want to convert...\n")
-    outHtmlBatch()  
-    #print(articleOriginPath_+" convert to "+outParam['htmlPath']+" OK!")
-    #updateArticleList(outParam['articldId'],outParam['articldName'])
-    os.system("PAUSE")
+    try:
+        #convertArticleName=input("Please input article name that want to convert...\n")
+        outHtmlBatch()  
+        #print(articleOriginPath_+" convert to "+outParam['htmlPath']+" OK!")
+        #updateArticleList(outParam['articldId'],outParam['articldName'])
+    except BaseException as error:
+        print(str(error))
+    finally:
+        os.system("PAUSE")
 
